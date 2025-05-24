@@ -25,27 +25,31 @@ func attack(charName, charClass string) string {
 func defence(char_name, char_class string) string {
 	if char_class == "warrior" {
 		return fmt.Sprintf("%s блокировал %d урона.", char_name, 10+randint(5, 10))
-	} else if char_class == "mage" {
+	} 
+	 if char_class == "mage" {
 		return fmt.Sprintf("%s блокировал %d урона.", char_name, 10+randint(-2, 2))
-	} else if char_class == "healer" {
+	} 
+	if char_class == "healer" {
 		return fmt.Sprintf("%s блокировал %d урона.", char_name, 10+randint(2, 5))
-	} else {
+	} 
 		return "неизвестный класс персонажа"
 	}
-}
+
 
 // обратите внимание на "if else" и на "else"
 func special(charName, charClass string) string {
 	if charClass == "warrior" {
 		return fmt.Sprintf("%s применил специальное умение `Выносливость %d`", charName, 80+25)
-	} else if charClass == "mage" {
+	} 
+	 if charClass == "mage" {
 		return fmt.Sprintf("%s применил специальное умение `Атака %d`", charName, 5+40)
-	} else if charClass == "healer" {
+	} 
+	 if charClass == "healer" {
 		return fmt.Sprintf("%s применил специальное умение `Защита %d`", charName, 10+30)
-	} else {
+	} 
 		return "неизвестный класс персонажа"
 	}
-}
+
 
 // здесь обратите внимание на имена параметров
 func start_training(char_name, char_class string) string {
@@ -71,16 +75,17 @@ func start_training(char_name, char_class string) string {
 	for cmd != "skip" {
 		fmt.Print("Введи команду: ")
 		fmt.Scanf("%s\n", &cmd)
+		switch {
 
-		if cmd == "attack" {
+		case cmd == "attack" {
 			fmt.Println(attack(char_name, char_class))
 		}
 
-		if cmd == "defence" {
+		case cmd == "defence" {
 			fmt.Println(defence(char_name, char_class))
 		}
 
-		if cmd == "special" {
+		case cmd == "special" {
 			fmt.Println(special(char_name, char_class))
 		}
 	}
@@ -98,9 +103,11 @@ func choise_char_class() string {
 		fmt.Scanf("%s\n", &char_class)
 		if char_class == "warrior" {
 			fmt.Println("Воитель — дерзкий воин ближнего боя. Сильный, выносливый и отважный.")
-		} else if char_class == "mage" {
+		} 
+		if char_class == "mage" {
 			fmt.Println("Маг — находчивый воин дальнего боя. Обладает высоким интеллектом.")
-		} else if char_class == "healer" {
+		} 
+		if char_class == "healer" {
 			fmt.Println("Лекарь — могущественный заклинатель. Черпает силы из природы, веры и духов.")
 		}
 		fmt.Print("Нажми (Y), чтобы подтвердить выбор, или любую другую кнопку, чтобы выбрать другого персонажа: ")
